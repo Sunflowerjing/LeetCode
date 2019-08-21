@@ -18,6 +18,7 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
+    // 方法一
     var length = nums.length;
     for(var i=0; i<length; i++) {
         for(var j=i+1; j<length; j++ ){
@@ -27,5 +28,29 @@ var twoSum = function(nums, target) {
             }
         }
     }
+
+    // 方法二
+    var length = nums.length;
+    var arr = [];
+    for(var i=0; i<length; i++){
+        if(target-nums[i] === nums[i+1]){
+           arr.push(i,i+1);
+         }
+    }
+    return arr;
+
+    // 方法三
+    var hash = {};
+    var length = nums.length;
+    for(var i = 0; i < length; i++){
+        var el = nums[i];
+        if(el in hash){
+          return [~~hash[el], i];
+        }
+        hash[target - el] = i;
+        
+    } 
+    return [];
+
 };
 
