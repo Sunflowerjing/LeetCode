@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+    <script>
+        function reverseList(head) {
+            // 递归解法：
+            // 当头节点为空或下个节点为空时返回该节点：
+            if(head == null || head.next == null) return head;
+            
+            // 获取下一个节点：
+            var next_node = head.next;
+            // 递归反转
+            var res = reverseList(next_node);
+            console.log('.......');
+            // 将头节点接到反转链表的尾部
+            next_node.next = head;
+            head.next = null;
+            return res;
+        };
+        reverseList([1,2,3,4,5]);
+    </script>
+</head>
+<body>
+    <h1>哈哈哈😄</h1>
+</body>
+</html>
