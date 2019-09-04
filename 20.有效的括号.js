@@ -66,3 +66,23 @@ var isValid = function(s) {
     }
     return stack.length === 0;
 };
+
+
+var isValid = function(s) {
+    var stack = [];
+    var map = {
+        '(':')',
+        '[':']',
+        '{':'}',
+    }
+    for(var g of s){
+        if(g in map){
+           stack.push(g); 
+        } else {
+            if( !stack.length || g != map[stack.pop()]) {
+                return false
+            }
+        }
+    }
+   return !stack.length
+};
